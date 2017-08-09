@@ -2,6 +2,7 @@ import java.applet.Applet;
 import java.awt.Graphics;
 
 
+@SuppressWarnings("unused")
 public class stats {
 
 	public stats() {
