@@ -41,7 +41,7 @@ public class player {
     int safety;
     int intRec;
     int intYds;
-    int intDef;
+    int pssBrk;
     int intTD;
     
     // Full constructor
@@ -107,24 +107,146 @@ public class player {
 	    this.safety = 0;
 	    this.intRec = 0;
 	    this.intYds = 0;
-	    this.intDef = 0;
+	    this.pssBrk = 0;
 	    this.intTD = 0;
 	}
 	
 	// TODO: Build main functions.
 	// Statistical calculations
-	private void updatePsrRtg() {
+	protected void updatePasserRating() {
 		passRtg = ((8.4 * passYds) + (330 * passTD) + (100 * passComp) - (200 * passInt)) / passAtt;
 		compPerc = passComp / passAtt;
 	}
 
-	private void updateYPCarry() {
+	protected void updateRushYPC() {
 		rushYPC = rushYds / rushAtt;
 	}
 	
-	private void updateYPCatch() {
+	protected void updateRecYPC() {
 		recYPC = recYds / recComp;
 	}
 	
-	
+	// Update stats
+	// Offensive stats
+	protected void completePass(int yds,boolean TD) {
+        passAtt++;
+        passComp++;
+        passYds += yds;
+        if (TD) {
+            passTD++;
+        }
+        if (yds > passLong) {
+            passLong = yds;
+        }
+        updatePasserRating();
+    }
+    
+    protected void incompletePass() {
+        passAtt++;
+        updatePasserRating();
+    }
+    
+    protected void interceptionThrown() {
+        passAtt++;
+        passInt++;
+        updatePasserRating();
+    }
+    
+    protected void rush(int yds, boolean TD){
+        rushAtt++;
+        rushYds += yds;
+        if (TD) {
+            rushTD++;
+        }
+        if (yds > rushLong) {
+            rushLong = yds;
+        }
+        updateRushYPC();
+    }
+    
+    protected void rushFumble(int yds){
+        rushAtt += 1;
+        rushFum += 1;
+        rushYds += yds;
+        
+        updateRushYPC();
+    }
+
+    protected void reception(int yds, boolean TD) {
+    	recAtt++;
+    	recComp++;
+    	recYds += yds;
+    	
+    	if (TD) {
+    		recTD++;
+    	}
+    	if (yds > recLong) {
+    		recLong = yds;
+    	}
+    	
+    	updateRecYPC();
+    }
+    
+    protected void drop() {
+    	recAtt++;
+    }
+    
+    protected void pancake() {
+    	bloPan++;
+    }
+    
+    // Defensive stats
+    protected void tackle() {
+    	tkl++;
+    }
+    
+    protected void tackleAsst() {
+    	tklAss++;
+    }
+    
+    protected void tackleFL() {
+    	tkl++;
+    	tklLss++;
+    }
+    
+    protected void sack(boolean safe) {
+    	tkl++;
+    	tklLss++;
+    	tklSck++;
+    	
+    	if (safe) {
+    		safety++;
+    	}
+    }
+    
+    protected void safety() {
+    	tkl++;
+    	tklLss++;
+    	safety++;
+    }
+    
+    protected void forceFumble() {
+    	fumFor++;
+    }
+    
+    protected void fumbleRec(int yds, boolean touchdown) {
+    	fumRec++;
+    	fumYds += yds;
+    	if (touchdown) {
+    		fumTD++;
+    	}
+    }
+    
+    protected void interception(int yds, boolean TD) {
+    	intRec++;
+    	intYds += yds;
+    	
+    	if (TD) {
+    		intTD++;
+    	}
+    }
+    
+    protected void passBreakup() {
+    	pssBrk++;
+    }
 }
