@@ -5,6 +5,7 @@ public class game {
 	public game(team home, team away) {
 		this.homeTeam = home;
 		this.awayTeam = away;
+		
 	}
 	
 	public game() {
