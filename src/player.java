@@ -112,6 +112,19 @@ public class player {
 	}
 	
 	// TODO: Build main functions.
-	
+	// Statistical calculations
+	private void updatePsrRtg() {
+		passRtg = ((8.4 * passYds) + (330 * passTD) + (100 * passComp) - (200 * passInt)) / passAtt;
+		compPerc = passComp / passAtt;
+	}
 
+	private void updateYPCarry() {
+		rushYPC = rushYds / rushAtt;
+	}
+	
+	private void updateYPCatch() {
+		recYPC = recYds / recComp;
+	}
+	
+	
 }
