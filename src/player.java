@@ -61,6 +61,13 @@ public class player {
 		
 		zeroScores();
 	}
+	
+	// Number only constructor
+	public player(int num) {
+		this.pos = "NA";
+		this.name = "Unknown";
+		this.number = num;
+	}
     
 	// Baseline constructor
 	public player() {
