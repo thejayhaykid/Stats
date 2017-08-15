@@ -77,6 +77,10 @@ public class player {
 		zeroScores();
 	}
 	
+	protected void changeName(String _name) {
+		this.name = _name;
+	}
+	
 	// Set all stats to 0, used for constructor
 	private void zeroScores() {
 		// Offensive Stats
