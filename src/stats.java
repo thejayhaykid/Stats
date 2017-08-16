@@ -26,5 +26,9 @@ public class stats extends Applet {
 		
 		// Option to export stats for max preps
 	}
+	
+	private void exportForMaxPreps() {
+		
+	}
 
 }
