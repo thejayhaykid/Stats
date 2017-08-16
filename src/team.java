@@ -25,7 +25,7 @@ public class team {
 		players = new HashSet<player>();
 	}
 	
-	private HashSet<player> makeRandomTeam(int numPlrs) {
+	protected HashSet<player> makeRandomTeam(int numPlrs) {
 		HashSet<player> team = new HashSet<player>();
 		
 		for (int i = 0; i < numPlrs; i++) {
@@ -36,9 +36,17 @@ public class team {
 		return team;
 	}
 	
-	private HashSet<player> openTeam() {
+	protected HashSet<player> openTeam() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	
+	protected HashSet<player> makeTeam() {
+		HashSet<player> team = new HashSet<player>();
+		
+		
+		
+		return team;
 	}
 
 }
