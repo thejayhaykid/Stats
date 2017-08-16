@@ -10,6 +10,7 @@ public class team {
 		players = new HashSet<player>();
 		this.name = _name;
 		
+		// TODO - Setup team creation
 		if (!setUp) {
 			players = makeRandomTeam(50);
 		} else {
@@ -26,10 +27,12 @@ public class team {
 	// Default constructor.
 	public team() {
 		players = new HashSet<player>();
+		this.name = "Unknown";
 	}
 	
 	// Make a random team with players with numbers 0->n
 	protected HashSet<player> makeRandomTeam(int numPlrs) {
+		// TODO
 		HashSet<player> team = new HashSet<player>();
 		
 		for (int i = 0; i < numPlrs; i++) {
@@ -42,12 +45,13 @@ public class team {
 	
 	// Load a team from a "x.team" file
 	protected HashSet<player> openTeam() {
-		// TODO Auto-generated method stub
+		// TODO 
 		return null;
 	}
 	
 	// Making a team with setting up names, numbers, and positions manually
 	protected HashSet<player> makeTeam() {
+		// TODO
 		HashSet<player> team = new HashSet<player>();
 		
 		

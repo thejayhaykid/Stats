@@ -15,16 +15,15 @@ public class stats extends Applet {
 	}
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		// Create/load teams
+		// TODO Create/load teams
 		
-		// Create game()
+		// TODO Create game()
 		
-		// Run game()
+		// TODO Run game()
 		
-		// Option to to save team(s)
+		// TODO Option to to save team(s)
 		
-		// Option to export stats for max preps
+		// TODO Option to export stats for max preps
 	}
 	
 	private void exportForMaxPreps() {
