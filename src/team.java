@@ -58,5 +58,10 @@ public class team {
 		
 		return team;
 	}
+	
+	// Saving "x.team" file
+	public void saveTeam() {
+		// TODO
+	}
 
 }
