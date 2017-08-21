@@ -112,11 +112,8 @@ public class stats {
 			
 			out.close();
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
 	}
 
 	private static void saveTeams(Scanner in) {
@@ -176,7 +173,30 @@ public class stats {
 	}
 
 	private static void exportForMaxPreps() {
+		System.out.print("Enter the name of the text file: ");
+		String ans = in.nextLine();
 		
+		if (ans == "") {
+			ans = new SimpleDateFormat("yyyy.MM.dd").format(new java.util.Date());
+			ans += "_STATS-GAME";
+			System.out.println(ans);
+		}
+		
+		if (ans.length() > 3) {
+			if (ans.substring(ans.length() - 3) != ".txt") {
+				ans += ".txt";
+			}
+		}
+		
+		try {
+			PrintWriter out = new PrintWriter(ans);
+			
+			
+			
+			out.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
 	}
 
 }
