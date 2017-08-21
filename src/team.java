@@ -1,3 +1,4 @@
+import java.io.PrintWriter;
 import java.util.HashSet;
 import java.util.Scanner;
 
@@ -61,6 +62,10 @@ public class team {
 	public team createTeam(Scanner in) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	
+	public void exportForMaxPreps(PrintWriter out) {
+		
 	}
 
 }

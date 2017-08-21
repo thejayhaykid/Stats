@@ -42,7 +42,7 @@ public class stats {
 					break;
 				// TODO Option to export stats for max preps
 				case "x":
-					exportForMaxPreps();
+					exportForMaxPreps(in);
 					break;
 				case "e":
 					System.out.println("Thank you for using the stats app.");
@@ -76,7 +76,7 @@ public class stats {
 		System.out.print("Enter the name of the text file: ");
 		String ans = in.nextLine();
 		
-		if (ans == "") {
+		if (ans.length() < 1) {
 			ans = new SimpleDateFormat("yyyy.MM.dd").format(new java.util.Date());
 			ans += "_STATS-GAME";
 			System.out.println(ans);
@@ -172,11 +172,25 @@ public class stats {
 		System.out.println("<------------------------>");
 	}
 
-	private static void exportForMaxPreps() {
+	private static void exportForMaxPreps(Scanner in) {
+		System.out.print("Export for home(h) team or away(a) team? ");
+		String team = in.nextLine().toLowerCase();
+		
+		team xTm = new team();
+		
+		if (team.charAt(0) == 'h') {
+			xTm = gm.homeTeam;
+		} else if (team.charAt(0) == 'a') {
+			xTm = gm.awayTeam;
+		} else {
+			System.out.println("ERROR: Invalid entry. Exiting.");
+			return;
+		}
+		
 		System.out.print("Enter the name of the text file: ");
 		String ans = in.nextLine();
 		
-		if (ans == "") {
+		if (ans.length() < 1) {
 			ans = new SimpleDateFormat("yyyy.MM.dd").format(new java.util.Date());
 			ans += "_STATS-GAME";
 			System.out.println(ans);
@@ -191,7 +205,7 @@ public class stats {
 		try {
 			PrintWriter out = new PrintWriter(ans);
 			
-			
+			xTm.exportForMaxPreps(out);
 			
 			out.close();
 		} catch (FileNotFoundException e) {
