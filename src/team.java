@@ -1,4 +1,5 @@
 import java.util.HashSet;
+import java.util.Scanner;
 
 public class team {
 
@@ -9,13 +10,6 @@ public class team {
 	public team(String _name, boolean setUp) {
 		players = new HashSet<player>();
 		this.name = _name;
-		
-		// TODO - Setup team creation
-		if (!setUp) {
-			players = makeRandomTeam(50);
-		} else {
-			players = openTeam();
-		}
 	}
 
 	// Standard constructor.
@@ -44,15 +38,15 @@ public class team {
 	}
 	
 	// Load a team from a "x.team" file
-	protected HashSet<player> openTeam() {
+	protected team loadTeam() {
 		// TODO 
 		return null;
 	}
 	
 	// Making a team with setting up names, numbers, and positions manually
-	protected HashSet<player> makeTeam() {
+	protected team makeTeam() {
 		// TODO
-		HashSet<player> team = new HashSet<player>();
+		team team = new team();
 		
 		
 		
@@ -62,6 +56,11 @@ public class team {
 	// Saving "x.team" file
 	public void saveTeam() {
 		// TODO
+	}
+
+	public team createTeam(Scanner in) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
