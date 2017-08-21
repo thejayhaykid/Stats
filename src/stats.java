@@ -137,9 +137,9 @@ public class stats {
 		System.out.print("Would you like to load(l) or create(c) teams? ");
 		String ans = in.nextLine().toLowerCase();
 		
-		if (ans == "l") {
+		if (ans.charAt(0) == 'l') {
 			tm = tm.loadTeam();
-		} else if (ans == "c") {
+		} else if (ans.charAt(0) == 'c') {
 			tm = tm.createTeam(in);
 		} else {
 			System.out.println("ERROR: Invalid entry. Exiting.");
@@ -151,9 +151,9 @@ public class stats {
 		System.out.print("Is this going to be the home(h) team or away(a) team? ");
 		ans = in.nextLine().toLowerCase();
 		
-		if (ans == "h") {
+		if (ans.charAt(0) == 'h') {
 			gm.homeTeam = tm;
-		} else if (ans == "a") {
+		} else if (ans.charAt(0) == 'a') {
 			gm.awayTeam = tm;
 		} else {
 			System.out.println("ERROR: Invalid entry. Exiting.");

@@ -30,6 +30,8 @@ public class game {
 			System.out.println("ERROR: Need to load or create both teams.");
 			return;
 		}
+		
+		System.out.println("Play feature coming soon");
 	}
 
 }
