@@ -28,19 +28,15 @@ public class stats {
 				case "h":
 					printHelp();
 					break;
-				// TODO Create/load teams
 				case "t":
 					createOrLoadTeam(in);
 					break;
-				// TODO Run game()
 				case "p":
 					playGame();
 					break;
-				// TODO Option to to save team(s)
 				case "s":
 					saveTeams(in);
 					break;
-				// TODO Option to export stats for max preps
 				case "x":
 					exportForMaxPreps(in);
 					break;
@@ -117,13 +113,19 @@ public class stats {
 	}
 
 	private static void saveTeams(Scanner in) {
-		// TODO Auto-generated method stub
 		System.out.println("Would you like to save the home(h) team or away(a) team? ");
 		String ans = in.nextLine().toLowerCase();
+		
+		if (ans.charAt(0) == 'h') {
+			gm.homeTeam.saveTeam();
+		} else if (ans.charAt(0) == 'a') {
+			gm.awayTeam.saveTeam();
+		} else {
+			System.out.println("ERROR: Invalid entry. Exiting.");
+		}
 	}
 
 	private static void playGame() {
-		// TODO Auto-generated method stub
 		if (gm.homeTeam == null || gm.awayTeam == null) {
 			System.out.println("ERROR: Need to load or create both teams.");
 			return;
