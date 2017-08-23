@@ -117,9 +117,9 @@ public class stats {
 		String ans = in.nextLine().toLowerCase();
 		
 		if (ans.charAt(0) == 'h') {
-			gm.homeTeam.saveTeam();
+			gm.homeTeam.saveTeam(in);
 		} else if (ans.charAt(0) == 'a') {
-			gm.awayTeam.saveTeam();
+			gm.awayTeam.saveTeam(in);
 		} else {
 			System.out.println("ERROR: Invalid entry. Exiting.");
 		}

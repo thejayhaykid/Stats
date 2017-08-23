@@ -1,4 +1,6 @@
+import java.io.FileNotFoundException;
 import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Scanner;
@@ -64,8 +66,39 @@ public class team {
 	}
 	
 	// Saving "x.team" file
-	public void saveTeam() {
+	public void saveTeam(Scanner in) {
 		// TODO
+		System.out.print("Enter the name of the team file: ");
+		String ans = in.nextLine();
+		
+		if (ans.length() < 1) {
+			ans = this.name;
+			ans += new SimpleDateFormat("yyyy.MM.dd").format(new java.util.Date());
+			System.out.println(ans);
+		}
+		
+		if (ans.length() > 4) {
+			if (ans.substring(ans.length() - 3) != ".team") {
+				ans += ".team";
+			}
+		}
+		
+		try {
+			PrintWriter out = new PrintWriter(ans);
+			
+			out.println("Name: " + this.name);
+			if (this.maxPrepsID.length() > 0) {
+				out.println("ID: " + this.maxPrepsID);
+			} else {
+				out.println();
+			}
+			
+			out.println("Players:");
+			
+			out.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public team createTeam(Scanner in) {
