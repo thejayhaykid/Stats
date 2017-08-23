@@ -34,7 +34,6 @@ public class team {
 	
 	// Make a random team with players with numbers 0->n
 	protected HashSet<player> makeRandomTeam(int numPlrs) {
-		// TODO
 		HashSet<player> team = new HashSet<player>();
 		
 		for (int i = 0; i < numPlrs; i++) {
@@ -67,7 +66,6 @@ public class team {
 	
 	// Saving "x.team" file
 	public void saveTeam(Scanner in) {
-		// TODO
 		System.out.print("Enter the name of the team file: ");
 		String ans = in.nextLine();
 		
@@ -78,7 +76,7 @@ public class team {
 		}
 		
 		if (ans.length() > 4) {
-			if (ans.substring(ans.length() - 3) != ".team") {
+			if (ans.substring(ans.length() - 4) != ".team") {
 				ans += ".team";
 			}
 		}
@@ -94,6 +92,14 @@ public class team {
 			}
 			
 			out.println("Players:");
+			
+			Iterator<player> it = this.players.iterator();
+			player temp = it.next();
+			
+			do {
+				out.println(temp.name + " - " + temp.number + " - " + temp.pos);
+				temp = it.next();
+			} while (it.hasNext());
 			
 			out.close();
 		} catch (FileNotFoundException e) {
