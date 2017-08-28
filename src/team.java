@@ -91,6 +91,8 @@ public class team {
 				temp = it.next();
 			} while (it.hasNext());
 			
+			out.println(temp.name + " - " + temp.number + " - " + temp.pos);
+			
 			out.close();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -115,11 +117,14 @@ public class team {
 		System.out.print("Enter the number of players on the team: ");
 		int playerCount = in.nextInt();
 		
+		in.nextLine();
+		
 		for (int i = 0; i < playerCount; i++) {
 			System.out.print("Enter the players name: ");
 			String pName = in.nextLine();
 			System.out.print("Enter the players number: ");
 			int num = in.nextInt();
+			in.nextLine();
 			System.out.print("Enter the players position: ");
 			String pos = in.nextLine();
 			
