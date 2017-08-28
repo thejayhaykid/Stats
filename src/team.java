@@ -54,16 +54,6 @@ public class team {
 		return null;
 	}
 	
-	// Making a team with setting up names, numbers, and positions manually
-	protected team makeTeam() {
-		// TODO
-		team team = new team();
-		
-		
-		
-		return team;
-	}
-	
 	// Saving "x.team" file
 	public void saveTeam(Scanner in) {
 		System.out.print("Enter the name of the team file: ");
@@ -108,8 +98,29 @@ public class team {
 	}
 
 	public team createTeam(Scanner in) {
-		// TODO Auto-generated method stub
-		return null;
+		System.out.print("Enter the team name: ");
+		String name = in.nextLine();
+		
+		team retT = new team(name);
+		
+		System.out.print("Enter the number of players on the team: ");
+		int playerCount = in.nextInt();
+		
+		for (int i = 0; i < playerCount; i++) {
+			System.out.print("Enter the players name: ");
+			String pName = in.nextLine();
+			System.out.print("Enter the players number: ");
+			int num = in.nextInt();
+			System.out.print("Enter the players position: ");
+			String pos = in.nextLine();
+			
+			player temp = new player(num, pName, pos);
+			retT.players.add(temp);
+		}
+		
+		System.out.println("Team created...\nSending you back to main...\n\n");
+		
+		return retT;
 	}
 	
 	protected void exportForMaxPreps(PrintWriter out) {
