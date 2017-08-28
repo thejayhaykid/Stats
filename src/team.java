@@ -103,6 +103,15 @@ public class team {
 		
 		team retT = new team(name);
 		
+		System.out.print("Do you have a MaxPreps ID: ");
+		String ans = in.nextLine().toLowerCase();
+		
+		if(ans.charAt(0) == 'y') {
+			System.out.print("Enter MaxPreps ID: ");
+			String mpID = in.nextLine();
+			retT.setID(mpID);
+		}
+		
 		System.out.print("Enter the number of players on the team: ");
 		int playerCount = in.nextInt();
 		
